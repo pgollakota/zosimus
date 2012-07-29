@@ -5,7 +5,7 @@ Welcome to Zosimus!
 
 Zosimus is a Django project that lets you introspect a database and plot the charts.
 
-.. warning: This project is not production ready!!! Use at your own risk.
+.. warning:: This project is not production ready!!! Use at your own risk.
 
 What's the catch?
 =================
@@ -37,7 +37,10 @@ External libraries
 
 - `Twitter Bootstrap <http://twitter.github.com/bootstrap/>`_ is licensed under
   `Apache License v2.0 <http://twitter.github.com/bootstrap/>`_
+
 - `jQuery <http://jquery.com>`_ is licensed under both
-   `MIT License and GNU General Public License (GPL) Version 2 <http://jquery.org/license/>`_.
-- `Highcharts <http://highcharts.com>`_ is licensed under the `Highcharts license
-   <http://www.highcharts.com/license>`_
+  `MIT License <http://jquery.org/license/>`_ and
+  `GNU General Public License (GPL)  Version 2 <http://jquery.org/license/>`_.
+
+- `Highcharts <http://highcharts.com>`_ is licensed under the
+  `Highcharts license <http://www.highcharts.com/license>`_
