@@ -36,7 +36,7 @@ External libraries
 ``Zosimus`` uses external libraries are licensed differently.
 
 - `Twitter Bootstrap <http://twitter.github.com/bootstrap/>`_ is licensed under
-`Apache License v2.0 <http://twitter.github.com/bootstrap/>_
+  `Apache License v2.0 <http://twitter.github.com/bootstrap/>_
 - `jQuery`` is licensed under both
    `MIT License and GNU General Public License (GPL) Version 2 <http://jquery.org/license/>`_.
 - `Highcharts <http://highcharts.com>`_ is licensed under the `Highcharts license
