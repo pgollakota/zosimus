@@ -289,11 +289,11 @@ class Chart(models.Model):
         session = self.datasource.session
         aggr_func = getattr(sqlalchemy.func, str(self.aggr_func_name))
         table_base = self.datasource.bases[self.table_name]
-        print str(self.x_axis), str(self.y_axis)  # TODO: Fix the name.
         try:
             return session.query(getattr(table_base, str(self.x_axis)),
                              aggr_func(getattr(table_base, str(self.y_axis))))\
-                          .group_by(getattr(table_base, str(self.x_axis))).all()
+                          .group_by(getattr(table_base, str(self.x_axis)))\
+                          .order_by(getattr(table_base, str(self.x_axis))).all()
         except sqlalchemy.exc.OperationalError:
             raise ChartCreationError
 
