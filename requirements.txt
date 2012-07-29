@@ -1,0 +1,6 @@
+Django
+MySQL-python
+SQLAlchemy
+django-fields
+pytz
+simplejson
