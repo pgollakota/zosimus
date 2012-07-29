@@ -40,7 +40,7 @@
 
 			<ul>
 				{% for d in datasources %}
-					<li> <a href="/datasources/detail/{{d.id}}">{{ d.name }}</a> </li>
+					<li> <a href="/datasources/{{d.id}}/">{{ d.name }}</a> </li>
 				{% endfor %}
 			</ul>
 
@@ -53,7 +53,7 @@
 		<h2> Charts </h2>
 		<ul>
 			{% for ch in charts %}
-				<li> <a href="/datasources/{{ch.id}}"> {{ ch.name }} </a> </li>
+				<li> <a href="/charts/{{ch.id}}/"> {{ ch.name }} </a> </li>
 			{% endfor %}
 		</ul>
 		</div>
