@@ -1,0 +1,64 @@
+{% extends "chartchemy/base.html" %}
+
+{% block content %}
+
+<div class="row">
+
+	<div class="span12">
+
+			<div class="well">
+				<h1> Welcome to Zosimus! </h1>
+				<blockquote> If you are not embarrassed by the first version of your product, you’ve launched too late.
+					<small>Reid Hoffman, Founder of LinkedIn</small>
+				</blockquote>
+
+				<h3> What is this all about? </h3>
+				<ul>
+					<li> Connect your datasource (only MySQL for now) and draw charts!</li>
+				</ul>
+				<h3> What's the catch?</h3>
+				<ul>
+					<li> This is a proof of concept application and is more unstable than a drunken monkey on Speed.</li>
+					<li> If your table names or column names contain spaces or funny characters, this will blow up. </li>
+					<li> You can only plot bar charts, that too date and time columns are not supported.</li>
+					<li> It's not been tested. Your database may blow up, your server may melt, your eyes may bleed, or ... you get the point.</li>
+					<li> <i>Nothing</i> is coded defensively. Infact every line in the code has been carefully crafted to offend the delicate sensibilities of every developer who cares about code craftsmanship.</li>
+					<li> If asked, I will publicly disavow having ever written this. </li>
+				</ul>
+				<h3> How do I get started? </h3>
+				<ul>
+					<li> Add a data source (click on the top right). </li>
+					<li> Create a chart. That's it!</li>
+				</ul>
+			</div>
+	</div>
+
+	<div class="span6">
+		<div class="well">
+
+			<h2> Datasources </h2>
+
+			<ul>
+				{% for d in datasources %}
+					<li> <a href="/datasources/detail/{{d.id}}">{{ d.name }}</a> </li>
+				{% endfor %}
+			</ul>
+
+		</div>
+	</div>
+
+	<div class="span6">
+		<div class="well">
+
+		<h2> Charts </h2>
+		<ul>
+			{% for ch in charts %}
+				<li> <a href="/datasources/{{ch.id}}"> {{ ch.name }} </a> </li>
+			{% endfor %}
+		</ul>
+		</div>
+
+	</div>
+</div>
+{% endblock content %}
+

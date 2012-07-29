@@ -1,0 +1,34 @@
+{% extends "chartchemy/base.html" %}
+
+{% block extrajs %}
+<script src="{{ STATIC_URL }}js/chartloader.js"></script>
+<script src="{{ STATIC_URL }}js/highcharts.js"></script>
+{% endblock %}
+
+{% block content %}
+<div class="row">
+	<div class="span3">
+		<form method="post" action="" class="well">
+			{% csrf_token %}
+			{{ form_table.as_p }}
+			<input type="submit" name="save_table" value="Save" class="btn btn-success" />
+		</form>
+	{% if display_axes_form %}
+		<form method="post" action="" class="well">
+			{% csrf_token %}
+			{{ form_axes.as_p }}
+			<input type="submit" name="save_axes" value="Save" class="btn btn-success" />
+		</form>
+
+	{% endif %}
+	</div>
+	<div class="span9">
+		<div id="chartchemy_chart">
+			{% load chartchemy %}
+			{{ column_chart|load_chart }}
+		</div>
+	</div>
+</div>
+
+{% endblock content %}
+

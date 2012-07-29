@@ -1,0 +1,81 @@
+# General
+*~
+*.o
+*.O
+*.exe
+*.EXE
+*.tmp
+*.TMP
+*.bkp
+*.BKP
+*.save
+*.SAVE
+*.lo
+*.la
+*.al
+libs
+*.so
+*.so.[0-9]*
+*.a
+*.pyc
+*.pyo
+*.rej
+*.swp
+\#*\#
+*.bin
+*RECYCLE*
+*Trash*
+*TRASH*
+*.orig
+*.ORIG
+*.log
+*.LOG
+*.py[cod]
+
+# C extensions
+*.so
+
+# Packages
+*.egg
+*.egg-info
+dist
+build
+eggs
+parts
+bin
+var
+sdist
+develop-eggs
+.installed.cfg
+lib
+lib64
+
+# Installer logs
+pip-log.txt
+
+# Unit test / coverage reports
+.coverage
+.tox
+nosetests.xml
+
+#Translations
+*.mo
+
+#Mr Developer
+.mr.developer.cfg
+
+# Aptana IDE settings
+.project
+.pydevproject
+*.prefs
+
+# Sphinx build
+_build
+
+# Django related settings and databases
+production_settings.py
+*.sqlite3
+*.db
+zosimus/assets/static/*
+!zosimus/assets/static/.gitinclude
+/zosimus/chartchemy/static/js/highcharts.js

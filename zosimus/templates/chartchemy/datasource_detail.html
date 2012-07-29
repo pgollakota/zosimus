@@ -1,0 +1,27 @@
+{% extends "chartchemy/base.html" %}
+
+{% block content %}
+<div class="row">
+	<h2> Datasource: {{ds.name }}</h2>
+	{% for t, md_columns in db_layout.items %}
+	<div class="container well ">
+		<h3> {{ t }} </h3>
+		<ul>
+			{% for md, columns in md_columns.items %}
+			<li> <h4>{{ md|title }} </h4> </li>
+			<ul>
+				{% for c in columns %}
+				<li> {{ c }} </li>
+				{% empty %}
+				<li> <i> Nothing here ... </i></li>
+				{% endfor %}
+			</ul>
+			{% endfor %}
+		</ul>
+	</div>
+	{% endfor %}
+
+</div>
+
+{% endblock content %}
+

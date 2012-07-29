@@ -1,0 +1,60 @@
+{% extends "chartchemy/base.html" %}
+
+{% block content %}
+
+<div class="row">
+
+	{% if messages %}
+	    {% for message in messages %}
+	    <li {% if message.tags %} class="alert alert-{{ message.tags }}"{% endif %}>{{ message }}</li>
+	    {% endfor %}
+	{% endif %}
+</div>
+
+<div class="row">
+	<table class="table table-striped">
+		<tr>
+			<th> Datasource Name </th>
+			<th> DB Type </th>
+			<th> DB Name </th>
+			<th> Username </th>
+			<th> Password </th>
+			<th> IP/URL </th>
+			<th> </th>
+			<th> </th>
+		</tr>
+
+		{% for ds in datasources %}
+		<tr>
+			<td> {{ ds.name }} </td>
+			<td> {{ ds.dbtype }} </td>
+			<td> {{ ds.dbname }} </td>
+			<td> {{ ds.dbusername }}</td>
+			<td> *** </td>
+			<td> {{ ds.dbhost }} </td>
+			<td> <a class="btn btn-primary" href="./{{ ds.id }}/">Details</a></td>
+			<td> <a class="btn btn-danger" href="./{{ ds.id }}/delete/">Delete</a></td>
+		</tr>
+		{% endfor %}
+
+		<tr>
+			<form method="post" action="">
+				{% csrf_token %}
+			<td> {{form.name.errors }} {{ form.name }} </td>
+			<td> {{ form.dbtype.errors }} {{ form.dbtype }} </td>
+			<td> {{ form.dbname.errors }} {{ form.dbname }} </td>
+			<td> {{ form.dbusername.errors }} {{ form.dbusername }} </td>
+			<td> {{ form.dbpassword.errors }} {{ form.dbpassword }} </td>
+			<td> {{ form.dbhost.errors }} {{ form.dbhost }} </td>
+			<td></td>
+			<td> <input type="submit" class="btn btn-success" value="Add" /> </td>
+			</form>
+		</tr>
+	</table>
+	{% if form.non_field_errors %}
+		<div class="alert alert-error"> {{ form.non_field_errors }} </div>
+	{% endif %}
+</div>
+
+{% endblock content %}
+

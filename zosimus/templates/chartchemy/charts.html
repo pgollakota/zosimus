@@ -1,0 +1,48 @@
+{% extends "chartchemy/base.html" %}
+
+{% block content %}
+
+<div class="row">
+
+	{% if messages %}
+	    {% for message in messages %}
+	    <li {% if message.tags %} class="alert alert-{{ message.tags }}"{% endif %}>{{ message }}</li>
+	    {% endfor %}
+	{% endif %}
+</div>
+
+<div class="row">
+	<table class="table table-striped">
+		<tr>
+			<th> Chart Name </th>
+			<th> Chart Datasource </th>
+			<th> </th>
+			<th> </th>
+		</tr>
+
+		{% for ch in charts %}
+		<tr>
+			<td> {{ ch.name }} </td>
+			<td> {{ ch.datasource.name }} </td>
+			<td> <a class="btn btn-primary" href="./{{ ch.id }}/">View</a></td>
+			<td> <a class="btn btn-danger" href="./{{ ch.id }}/delete/">Delete</a></td>
+		</tr>
+		{% endfor %}
+
+		<tr>
+			<form method="post" action="">
+				{% csrf_token %}
+			<td> {{form.name.errors }} {{ form.name }} </td>
+			<td> {{ form.dbtype.errors }} {{ form.datasource }} </td>
+			<td></td>
+			<td> <input type="submit" class="btn btn-success" value="Add" /> </td>
+			</form>
+		</tr>
+	</table>
+	{% if form.non_field_errors %}
+		<div class="alert alert-error"> {{ form.non_field_errors }} </div>
+	{% endif %}
+</div>
+
+{% endblock content %}
+
