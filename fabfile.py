@@ -38,7 +38,7 @@ def deploy_static():
 
 def restart_webserver():
     sudo('supervisorctl restart nginx')
-    sudo('supervisorctl restart chartit')
+    sudo('supervisorctl restart zosimus')
 
 
 def deploy():
