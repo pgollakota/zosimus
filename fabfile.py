@@ -29,11 +29,11 @@ def install_requirements():
 
 
 def upgrade_db():
-    run('cd zosimus && python manage.py syncdb')
+    run('python manage.py syncdb')
 
 
 def deploy_static():
-    run('cd zosimus && python manage.py collectstatic -v0 --noinput')
+    run('python manage.py collectstatic -v0 --noinput')
 
 
 def restart_webserver():
