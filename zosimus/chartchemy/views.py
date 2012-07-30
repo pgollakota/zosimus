@@ -9,6 +9,7 @@ from django.shortcuts import render, HttpResponseRedirect
 
 from forms import DatasourceForm, ChartTableForm, ColumnChartAxesForm, CreateChartForm
 from models import Datasource, Chart
+from zosimus.chartchemy.exceptions import ChartCreationError
 
 
 @login_required
@@ -151,8 +152,10 @@ def chart_details(request, pk):
                 column_chart = ch._plot_column_chart()
                 try:
                     column_chart = ch._plot_column_chart()
-                except (AttributeError, sqlalchemy.exc.OperationalError):
+                except (AttributeError, sqlalchemy.exc.OperationalError, ChartCreationError):
                     column_chart = None
+                    messages.add_message(request, messages.ERROR,
+                                         'Uh Oh! Error creating chart!')
         else:
             form_axes = None
 

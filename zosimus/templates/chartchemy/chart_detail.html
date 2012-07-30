@@ -23,6 +23,13 @@
 	{% endif %}
 	</div>
 	<div class="span9">
+
+	{% if messages %}
+	    {% for message in messages %}
+	    <li {% if message.tags %} class="alert alert-{{ message.tags }}"{% endif %}>{{ message }}</li>
+	    {% endfor %}
+	{% endif %}
+
 		<div id="chartchemy_chart">
 			{% load chartchemy %}
 			{{ column_chart|load_chart }}

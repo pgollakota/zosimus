@@ -303,7 +303,10 @@ class Chart(models.Model):
         title = self.name
         x_axis_title, y_axis_title = str(self.x_axis), str(self.y_axis)
         series_name = '%s(%s)' % (str(self.aggr_func_name), str(self.y_axis))
-        return render_highcharts_options('chartchemy_chart', categories, series,
-                                         title, x_axis_title, y_axis_title,
-                                         series_name)
+        try:
+            return render_highcharts_options('chartchemy_chart', categories, series,
+                                             title, x_axis_title, y_axis_title,
+                                             series_name)
+        except UnicodeDecodeError:
+            raise ChartCreationError
 
