@@ -6,12 +6,12 @@ def render_highcharts_options(render_to, categories, series, title, x_axis_title
     """Accepts the parameters to render a chart and returns a JSON serialized Highcharts options object."""
 
     # Escape all the character strings to make them HTML safe.
-    render_to = escape(render_to) if render_to else render_to
-    title = escape(title) if title else title
-    x_axis_title = escape(x_axis_title) if x_axis_title else x_axis_title
-    y_axis_title = escape(y_axis_title) if y_axis_title else y_axis_title
+    render_to = escape(render_to.encode('ascii', 'ignore')) if render_to else 'render_to'
+    title = escape(title.encode('ascii', 'ignore')) if title else 'title'
+    x_axis_title = escape(x_axis_title.encode('ascii', 'ignore')) if x_axis_title else 'x axis'
+    y_axis_title = escape(y_axis_title.encode('ascii', 'ignore')) if y_axis_title else 'y axis'
     # Categories (dimensions) come from the use. Escape them too.
-    categories = [escape(c) for c in categories]
+    categories = [escape(c.encode('ascii', 'ignore')) for c in categories]
 
     hco = {
         "chart": {
